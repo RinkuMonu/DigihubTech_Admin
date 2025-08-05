@@ -201,14 +201,22 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
         <DialogTitle sx={{ color: "#872d67" }}>
           {initialData
             ? "Update Product"
-            : addCategory
-            ? "Add Category"
+            :  addCategory
+            ? "Add sub Category"
             : "New Product"}
         </DialogTitle>
 
         <DialogContent>
           <Grid container spacing={2} sx={{ width: "400px" }}>
-         
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label={addCategory ? "Category Name" : "Product Name"}
+                variant="outlined"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+              />
+            </Grid>
 
             {addCategory && (
               <>
@@ -233,16 +241,6 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
                     </Select>
                   </FormControl>
                 </Grid>
-
-                     <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label={addCategory ? "Sub Category Name" : "Product Name"}
-                variant="outlined"
-                value={productName}
-                onChange={(e) => setProductName(e.target.value)}
-              />
-            </Grid>
 
                 <Grid item xs={12}>
                   <TextField
