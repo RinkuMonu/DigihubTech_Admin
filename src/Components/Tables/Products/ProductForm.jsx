@@ -215,7 +215,7 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
                 <Grid item xs={12}>
                   <FormControl fullWidth>
                     <InputLabel id="subcategory-label">
-                      Add Sub Category
+                      Add Category
                     </InputLabel>
                     <Select
                       labelId="subcategory-label"
@@ -237,7 +237,7 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
                      <Grid item xs={12}>
               <TextField
                 fullWidth
-                label={addCategory ? "Category Name" : "Product Name"}
+                label={addCategory ? "Sub Category Name" : "Product Name"}
                 variant="outlined"
                 value={productName}
                 onChange={(e) => setProductName(e.target.value)}
