@@ -46,6 +46,7 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+  const [subcategory, setSubCategory] = useState("");
   const { user, categories, setCategories } = useUser();
 
   useEffect(() => {
@@ -60,8 +61,7 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
       // setPreviewImages(initialData?.images || []);
       setPreviewImages(
         initialData?.images?.map(
-          // (img) => `https://api.jajamblockprints.com${img}`
-          (img) => {img}
+          (img) => `https://api.jajamblockprints.com${img}`
         ) || []
       );
     } else {
@@ -83,6 +83,7 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
     setDiscount(0);
     setReferenceWebsite("");
     setCategory("");
+    setSubCategory("");
     setImageFiles([]);
     setPreviewImages([]);
     setCategoryImage(null);
@@ -125,6 +126,7 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
 
     if (addCategory) {
       formData.append("name", productName);
+      formData.append("subcategory", subcategory);
       if (description) formData.append("description", description);
       if (referenceWebsite)
         formData.append("referenceWebsite", referenceWebsite);
@@ -141,6 +143,7 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
       formData.append("size", size);
       formData.append("referenceWebsite", referenceWebsite);
       formData.append("category", category);
+      
       imageFiles.forEach((file) => {
         formData.append("images", file);
       });
@@ -205,7 +208,33 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
 
         <DialogContent>
           <Grid container spacing={2} sx={{ width: "400px" }}>
-            <Grid item xs={12}>
+         
+
+            {addCategory && (
+              <>
+                <Grid item xs={12}>
+                  <FormControl fullWidth>
+                    <InputLabel id="subcategory-label">
+                      Add Sub Category
+                    </InputLabel>
+                    <Select
+                      labelId="subcategory-label"
+                      value={subcategory}
+                      onChange={(e) => setSubCategory(e.target.value)}
+                    >
+                      <MenuItem value="Mobile & Tablet">Mobile & Tablet</MenuItem>
+                      <MenuItem value="Computer & Peripherals">Computer & Peripherals</MenuItem>
+                      <MenuItem value="Audio & Smart Home">Audio & Smart Home</MenuItem>
+                      <MenuItem value="Home Appliances">Home Appliances</MenuItem>
+                      <MenuItem value="Kichen Appliances">Kichen Appliances</MenuItem>
+                      <MenuItem value="Wearbles & Smart Tech">Wearbles & Smart Tech</MenuItem>
+                      <MenuItem value="Grooming Appliances">Grooming Appliances</MenuItem>
+                      <MenuItem value="Camera & Musical">Camera & Musical</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+
+                     <Grid item xs={12}>
               <TextField
                 fullWidth
                 label={addCategory ? "Category Name" : "Product Name"}
@@ -215,8 +244,6 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
               />
             </Grid>
 
-            {addCategory && (
-              <>
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
