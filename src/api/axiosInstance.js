@@ -3,8 +3,9 @@ import { HandleAxiosError } from "./axioserror";
 
 
 const axiosInstance = axios.create({
-  baseURL: "https://api.jajamblockprints.com", // Replace with your actual base URL
-  // baseURL: "http://localhost:8080", // Replace with your actual base URL
+  // baseURL: "https://api.jajamblockprints.com", // Replace with your actual base URL
+  // baseURL: "http://localhost:5008", // Replace with your actual base URL
+  baseURL: "https://server.digihubtech.in", // Replace with your actual base URL
   headers: {
     "Content-Type": "application/json",
      },

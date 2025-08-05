@@ -60,7 +60,8 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
       // setPreviewImages(initialData?.images || []);
       setPreviewImages(
         initialData?.images?.map(
-          (img) => `https://api.jajamblockprints.com${img}`
+          // (img) => `https://api.jajamblockprints.com${img}`
+          (img) => {img}
         ) || []
       );
     } else {
