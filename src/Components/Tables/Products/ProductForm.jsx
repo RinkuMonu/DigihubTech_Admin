@@ -61,7 +61,7 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
       // setPreviewImages(initialData?.images || []);
       setPreviewImages(
         initialData?.images?.map(
-          (img) => `https://api.jajamblockprints.com${img}`
+          (img) => img
         ) || []
       );
     } else {
@@ -143,7 +143,7 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
       formData.append("size", size);
       formData.append("referenceWebsite", referenceWebsite);
       formData.append("category", category);
-      
+
       imageFiles.forEach((file) => {
         formData.append("images", file);
       });
@@ -152,13 +152,13 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
     try {
       const response = initialData
         ? await apiPut(`api/product/products/${initialData._id}`, formData, {
-            headers: { "Content-Type": "multipart/form-data" },
-          })
+          headers: { "Content-Type": "multipart/form-data" },
+        })
         : addCategory
-        ? await apiPost("api/categories", formData, {
+          ? await apiPost("api/categories", formData, {
             headers: { "Content-Type": "multipart/form-data" },
           })
-        : await apiPost("api/product/products", formData, {
+          : await apiPost("api/product/products", formData, {
             headers: { "Content-Type": "multipart/form-data" },
           });
 
@@ -201,9 +201,9 @@ const ProductForm = ({ dataHandler, initialData, websites, addCategory }) => {
         <DialogTitle sx={{ color: "#872d67" }}>
           {initialData
             ? "Update Product"
-            :  addCategory
-            ? "Add sub Category"
-            : "New Product"}
+            : addCategory
+              ? "Add sub Category"
+              : "New Product"}
         </DialogTitle>
 
         <DialogContent>
