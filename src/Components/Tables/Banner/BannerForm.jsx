@@ -105,11 +105,11 @@ const BannerForm = ({ dataHandler, initialData, websites }) => {
     try {
       const response = initialData
         ? await apiPut(`api/banners/${initialData._id}`, formData, {
-            // headers: { "Content-Type": "multipart/form-data" },
-          })
+          // headers: { "Content-Type": "multipart/form-data" },
+        })
         : await apiPost("api/banners/create", formData, {
-            // headers: { "Content-Type": "multipart/form-data" },
-          });
+          // headers: { "Content-Type": "multipart/form-data" },
+        });
 
       if (response.status === 200) {
         setSnackbarMessage("Banner saved successfully");
@@ -167,38 +167,40 @@ const BannerForm = ({ dataHandler, initialData, websites }) => {
                   onChange={(e) => setDescription(e.target.value)}
                   label="Filter tag"
                 >
-                  <MenuItem value="kalmkari-print-fabric">
-                    Kalmkari Print Fabric
-                  </MenuItem>
-                  <MenuItem value="cotton-mal-mal-saree">
-                    Cotton mal mal saree
-                  </MenuItem>
-                  <MenuItem value="chanderi-silk-saree">
-                    Chanderi Silk saree
-                  </MenuItem>
-                  <MenuItem value="maheswari-silk-saree">
-                    Maheswari Silk saree
-                  </MenuItem>
-                  <MenuItem value="kota-doriya-saree">
-                    Kota Doriya Saree
-                  </MenuItem>
-                  <MenuItem value="cotton-suit">Cotton Suit</MenuItem>
-                  <MenuItem value="sanganeri-print-fabric">
-                    Sanganeri Print Fabric
-                  </MenuItem>
-                  <MenuItem value="dabu-print-fabric">
-                    Dabu Print Fabric
-                  </MenuItem>
-                  <MenuItem value="bagru-print">Bagru Print</MenuItem>
-                  <MenuItem value="cotton-suit-in-kota">
-                    Cotton Suit In Kota
-                  </MenuItem>
-                  <MenuItem value="chanderi-silk-suits">
-                    Chanderi Silk Suits
-                  </MenuItem>
-                  <MenuItem value="maheshwari-silk-suits">
-                    Maheshwari Silk Suits
-                  </MenuItem>
+                  <MenuItem value="mobiles">Mobiles</MenuItem>
+                  <MenuItem value="tablets & ereaders">Tablets & eReaders</MenuItem>
+                  <MenuItem value="charger & powerbanks">Charger & Powerbanks</MenuItem>
+                  <MenuItem value="accessories">Accessories</MenuItem>
+                  <MenuItem value="laptops & desktops">Laptops & Desktops</MenuItem>
+                  <MenuItem value="printers & inks">Printers & Inks</MenuItem>
+                  <MenuItem value="headphones & earbuds">Headphones & Earbuds</MenuItem>
+                  <MenuItem value="camera">Camera</MenuItem>
+                  <MenuItem value="bluetooth & smart speakers">Bluetooth & Smart Speakers</MenuItem>
+                  <MenuItem value="musical instruments">Musical Instruments</MenuItem>
+                  <MenuItem value="shavers & trimmers">Shavers & Trimmers</MenuItem>
+                  <MenuItem value="karaoke & radio">Karaoke & Radio</MenuItem>
+                  <MenuItem value="hair dryers & stylers">Hair Dryers & Stylers</MenuItem>
+                  <MenuItem value="smart home devices">Smart Home Devices</MenuItem>
+                  <MenuItem value="fitness & massagers">Fitness & Massagers</MenuItem>
+                  <MenuItem value="health & oral care">Health & Oral Care</MenuItem>
+                  <MenuItem value="fans & air coolers">Fans & Air Coolers</MenuItem>
+                  <MenuItem value="smart watches">Smart Watches</MenuItem>
+                  <MenuItem value="water purifiers">Water Purifiers</MenuItem>
+                  <MenuItem value="smart watch accessories">Smart Watch Accessories</MenuItem>
+                  <MenuItem value="smart tags">Smart Tags</MenuItem>
+                  <MenuItem value="smart glasses & vr headset">Smart Glasses & VR Headset</MenuItem>
+                  <MenuItem value="irons & steamers">Irons & Steamers</MenuItem>
+                  <MenuItem value="geysers & heaters">Geysers & Heaters</MenuItem>
+                  <MenuItem value="breakfast appliances">Breakfast Appliances</MenuItem>
+                  <MenuItem value="cooking appliances">Cooking Appliances</MenuItem>
+                  <MenuItem value="vacuum cleaners">Vacuum Cleaners</MenuItem>
+                  <MenuItem value="juicers & mixer grinders">Juicers & Mixer Grinders</MenuItem>
+                  <MenuItem value="chimneys & hobs">Chimneys & Hobs</MenuItem>
+                  <MenuItem value="air purifiers">Air Purifiers</MenuItem>
+                  <MenuItem value="invertors & stabilizers">Invertors & Stabilizers</MenuItem>
+                  <MenuItem value="storage">Storage</MenuItem>
+                  <MenuItem value="peripherals & accessories">Peripherals & Accessories</MenuItem>
+
                   <MenuItem value="newArrival">New Arrivals</MenuItem>
                   <MenuItem value="customPrice">Custom Price</MenuItem>
                 </Select>
